@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
+<title>APEX MOTORS ULTRA </title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600;700&family=Barlow+Condensed:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================
+   ROOT VARIABLES (PREMIUM)
+   ============================ */
+:root{
+  --gold:#d7e41e;
+  --gold-light:#c5c215;
+  --gold-dark:#b5b814;
+  --dark:#110b0b;
+  --dark2:#0a0a0a;
+  --dark3:#111;
+  --dark4:#181818;
+  --gray:#888;
+  --gray-lt:#bbb;
+  --ease:cubic-bezier(.4,0,.2,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--dark);color:#fff;font-family:'Rajdhani',sans-serif;overflow-x:hidden}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--dark2)}
+::-webkit-scrollbar-thumb{background:var(--gold-dark);border-radius:3px}
+
+/* ============================
+   LOGIN PAGE (íntegro)
+   ============================ */
+#loginPage{
+  position:fixed;inset:0;z-index:9999;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--dark);overflow:hidden;
+  transition:opacity .9s var(--ease), transform .9s var(--ease);
+}
+#loginPage.out{opacity:0;transform:scale(1.08);pointer-events:none}
+.login-bg{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(0,0,0,.92) 45%,rgba(212,175,55,.04) 100%),
+  url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2070') center/cover no-repeat;
+}
+.login-bg::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 80% at 65% 50%, rgba(212,175,55,.07) 0%, transparent 70%);
+}
+.login-lines{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.login-lines span{
+  position:absolute;top:0;width:1px;height:100%;
+  background:linear-gradient(to bottom,transparent,rgba(212,175,55,.25) 40%,rgba(212,175,55,.25) 60%,transparent);
+  animation:lineDrift 6s ease-in-out infinite;
+}
+.login-lines span:nth-child(1){left:20%;animation-delay:0s}
+.login-lines span:nth-child(2){left:35%;animation-delay:1.5s;opacity:.4}
+.login-lines span:nth-child(3){left:65%;animation-delay:.7s;opacity:.3}
+.login-lines span:nth-child(4){left:80%;animation-delay:2.2s}
+@keyframes lineDrift{
+  0%,100%{transform:translateY(-30px);opacity:.3}
+  50%{transform:translateY(30px);opacity:1}
+}
+.corner-tl,.corner-br{
+  position:absolute;width:200px;height:200px;
+  border-color:rgba(178,212,55,0.15);border-style:solid;
+}
+.corner-tl{top:30px;left:30px;border-width:1px 0 0 1px}
+.corner-br{bottom:30px;right:30px;border-width:0 1px 1px 0}
+.login-panel{
+  position:relative;z-index:2;
+  width:460px;max-width:95vw;
+  background:rgba(8,8,8,.92);
+  border:1px solid rgba(212,175,55,.18);
+  padding:55px 50px 50px;
+  backdrop-filter:blur(18px);
+  animation:panelIn 1s var(--ease) .2s both;
+}
+@keyframes panelIn{
+  from{opacity:0;transform:translateY(35px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.login-panel::before,.login-panel::after{
+  content:'';position:absolute;width:25px;height:25px;
+  border-color:var(--gold);border-style:solid;
+}
+.login-panel::before{top:-1px;left:-1px;border-width:2px 0 0 2px}
+.login-panel::after{bottom:-1px;right:-1px;border-width:0 2px 2px 0}
+.login-logo{
+  font-family:'Bebas Neue';font-size:3.2rem;
+  letter-spacing:.35em;color:var(--gold);
+  text-align:center;margin-bottom:6px;
+}
+.login-tagline{
+  text-align:center;color:var(--gray);
+  font-size:.72rem;letter-spacing:.35em;text-transform:uppercase;
+  margin-bottom:40px;
+}
+.login-sep{
+  display:flex;align-items:center;gap:14px;margin-bottom:32px;
+}
+.login-sep::before,.login-sep::after{
+  content:'';flex:1;height:1px;background:rgba(212,175,55,.18);
+}
+.login-sep span{color:var(--gold);font-size:.68rem;letter-spacing:.3em;text-transform:uppercase}
+.login-field{margin-bottom:18px}
+.login-field label{
+  display:block;font-size:.72rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--gray);margin-bottom:7px;
+}
+.login-field input{
+  width:100%;background:rgba(255,255,255,.03);
+  border:1px solid rgba(212,175,55,.18);color:#fff;
+  padding:14px 18px;font-family:'Rajdhani',sans-serif;
+  font-size:1rem;outline:none;transition:.3s var(--ease);
+}
+.login-field input:focus{
+  border-color:var(--gold);background:rgba(212,175,55,.04);
+  box-shadow:0 0 0 3px rgba(212,175,55,.07);
+}
+.login-field input::placeholder{color:#333}
+.login-btn{
+  width:100%;padding:17px;margin-top:8px;
+  background:var(--gold);border:none;
+  color:#000;font-family:'Bebas Neue';font-size:1.25rem;
+  letter-spacing:.22em;cursor:pointer;
+  position:relative;overflow:hidden;transition:.3s var(--ease);
+}
+.login-btn::after{
+  content:'';position:absolute;top:0;left:-120%;
+  width:60%;height:100%;
+  background:rgba(255,255,255,.25);
+  transform:skewX(-20deg);transition:.6s;
+}
+.login-btn:hover::after{left:160%}
+.login-btn:hover{background:var(--gold-light)}
+.login-demo{
+  text-align:center;color:#3a3a3a;font-size:.78rem;
+  margin-top:22px;letter-spacing:.05em;
+}
+.login-demo span{color:var(--gold-dark);cursor:pointer;text-decoration:underline}
+.login-demo span:hover{color:var(--gold)}
+
+/* ============================
+   MAIN APP
+   ============================ */
+#mainApp{opacity:0;transition:opacity .7s ease}
+#mainApp.on{opacity:1}
+
+/* ============================
+   NAV
+   ============================ */
+nav{
+  position:sticky;top:0;z-index:600;
+  background:rgba(3,3,3,.96);
+  display:flex;align-items:center;
+  padding:0 44px;height:68px;
+  border-bottom:1px solid rgba(212,175,55,.12);
+  backdrop-filter:blur(20px);
+  gap:16px;
+}
+.nav-logo{
+  font-family:'Bebas Neue';font-size:1.9rem;
+  letter-spacing:.28em;color:var(--gold);flex-shrink:0;
+}
+.nav-menu-wrap{position:relative;display:flex;align-items:center;flex:1;padding:0 10px;}
+.nav-hamburger{
+  background:none;border:1px solid rgba(212,175,55,.3);
+  width:42px;height:38px;cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
+  padding:6px 8px;transition:.25s var(--ease);position:relative;
+}
+.nav-hamburger:hover{border-color:var(--gold);background:rgba(212,175,55,.07);}
+.nav-hamburger.open{border-color:var(--gold);background:rgba(212,175,55,.1);}
+.nav-hamburger span{
+  display:block;width:20px;height:1.5px;
+  background:var(--gray);transition:.3s var(--ease);
+}
+.nav-hamburger:hover span,.nav-hamburger.open span{background:var(--gold);}
+.nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+.nav-dropdown{
+  position:absolute;top:calc(100% + 14px);left:0;
+  background:rgba(6,6,6,.97);
+  border:1px solid rgba(212,175,55,.22);
+  min-width:220px;z-index:800;
+  box-shadow:0 20px 60px rgba(0,0,0,.85);
+  backdrop-filter:blur(20px);
+  opacity:0;transform:translateY(-10px) scale(.97);
+  pointer-events:none;
+  transition:opacity .25s var(--ease),transform .25s var(--ease);
+}
+.nav-dropdown.open{opacity:1;transform:none;pointer-events:all;}
+.nav-dropdown-inner{display:flex;flex-direction:column;padding:8px 0;}
+.nav-dd-btn{
+  background:none;border:none;color:var(--gray);
+  padding:11px 20px;cursor:pointer;
+  font-family:'Rajdhani',sans-serif;font-size:.85rem;
+  font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  text-align:left;transition:.2s var(--ease);
+  border-left:2px solid transparent;white-space:nowrap;
+}
+.nav-dd-btn:hover{color:var(--gold);background:rgba(212,175,55,.06);border-left-color:var(--gold);}
+.nav-dd-btn.active{color:var(--gold);border-left-color:var(--gold);background:rgba(212,175,55,.08);}
+.nav-dd-sep{height:1px;background:rgba(212,175,55,.1);margin:6px 12px;}
+.nav-dd-all{color:var(--gold)!important;font-weight:700!important;}
+.nav-right{flex-shrink:0}
+.nav-logout{
+  background:rgba(212,175,55,.09);
+  border:1px solid rgba(212,175,55,.25);
+  color:var(--gold);padding:8px 20px;cursor:pointer;
+  font-family:'Rajdhani',sans-serif;font-size:.82rem;
+  font-weight:600;letter-spacing:.1em;transition:.25s var(--ease);
+}
+.nav-logout:hover{background:var(--gold);color:#000}
+
+/* ============================
+   HERO SECTION
+   ============================ */
+.hero{
+  height:93vh;min-height:580px;
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;padding:20px;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(0,0,0,.65) 0%,rgba(6,6,6,.97) 100%),
+  url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2070') center/cover fixed;
+}
+.hero-bg::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;
+  height:220px;
+  background:linear-gradient(to top,var(--dark),transparent);
+}
+.hero-content{position:relative;z-index:1}
+.hero-badge{
+  display:inline-block;
+  font-size:.7rem;letter-spacing:.45em;text-transform:uppercase;
+  color:var(--gold);border:1px solid rgba(212,175,55,.3);
+  padding:8px 24px;margin-bottom:28px;
+  animation:fadeUp .9s var(--ease) .1s both;
+}
+.hero h1{
+  font-family:'Bebas Neue';
+  font-size:clamp(4.5rem,11vw,9.5rem);
+  letter-spacing:.07em;line-height:.88;
+  animation:fadeUp .9s var(--ease) .3s both;
+}
+.hero h1 span{color:var(--gold)}
+.hero-sub{
+  font-size:1.05rem;color:#999;margin-top:24px;
+  max-width:560px;line-height:1.75;font-weight:300;
+  animation:fadeUp .9s var(--ease) .5s both;
+}
+.hero-stats{
+  display:flex;gap:55px;margin-top:48px;
+  animation:fadeUp .9s var(--ease) .7s both;
+}
+.h-stat-val{
+  font-family:'Bebas Neue';font-size:2.6rem;
+  color:var(--gold);line-height:1;
+}
+.h-stat-lbl{
+  font-size:.65rem;color:var(--gray);
+  letter-spacing:.22em;text-transform:uppercase;margin-top:4px;
+}
+.hero-scroll{
+  position:absolute;bottom:45px;left:50%;
+  transform:translateX(-50%);z-index:1;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  animation:fadeUp .9s var(--ease) .9s both;
+}
+.hero-scroll-label{
+  font-size:.62rem;letter-spacing:.3em;color:var(--gray);text-transform:uppercase;
+}
+.scroll-bar{
+  width:1px;height:52px;
+  background:linear-gradient(to bottom,var(--gold),transparent);
+  animation:scrollAnim 2.2s ease-in-out infinite;transform-origin:top;
+}
+@keyframes scrollAnim{
+  0%,100%{transform:scaleY(.4);opacity:.5}
+  50%{transform:scaleY(1);opacity:1}
+}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(22px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ============================
+   CATALOG WRAPPER & BRAND SECTION
+   ============================ */
+.catalog-wrap{
+  max-width:1640px;margin:0 auto;padding:0 40px;
+}
+.brand-section{
+  padding:90px 0 60px;
+  border-bottom:1px solid rgba(255,255,255,.04);
+  position:relative;
+}
+.brand-header-row{
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:flex-end;gap:24px;
+  margin-bottom:20px;
+  padding-bottom:24px;
+  border-bottom:1px solid rgba(212,175,55,.1);
+  position:relative;
+}
+.brand-ghost-num{
+  position:absolute;top:-28px;left:-8px;
+  font-family:'Bebas Neue';font-size:7rem;
+  color:rgba(255,255,255,.025);letter-spacing:-.04em;
+  line-height:1;pointer-events:none;user-select:none;
+}
+.brand-lbl{
+  font-size:.68rem;letter-spacing:.38em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:6px;
+}
+.brand-title{
+  font-family:'Bebas Neue';
+  font-size:clamp(2.4rem,4.5vw,4.2rem);
+  letter-spacing:.06em;line-height:.95;color:#fff;
+  position:relative;z-index:1;
+}
+.brand-count-block{text-align:right}
+.brand-count-num{
+  font-family:'Bebas Neue';font-size:3.2rem;
+  color:var(--gold);line-height:1;
+}
+.brand-count-lbl{
+  font-size:.66rem;color:var(--gray);
+  letter-spacing:.22em;text-transform:uppercase;
+}
+.brand-desc{
+  color:#888;line-height:1.85;
+  max-width:700px;font-weight:300;
+  font-size:.98rem;margin:20px 0 36px;
+}
+
+/* ============================
+   CARS GRID - TARJETAS PREMIUM
+   ============================ */
+.cars-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(330px,1fr));
+  gap:24px;
+}
+.car-card{
+  background:var(--dark3);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  overflow:hidden;
+  cursor:pointer;
+  position:relative;
+  opacity:0;
+  transform:translateY(28px);
+  transition:border-color .3s var(--ease), box-shadow .4s var(--ease), transform .35s var(--ease);
+}
+.car-card.in{opacity:1;transform:none}
+.car-card:hover{
+  border-color:rgba(212,175,55,.5);
+  box-shadow:0 22px 48px rgba(0,0,0,.7), 0 0 30px rgba(212,175,55,.1);
+  transform:translateY(-6px);
+}
+.card-img-wrap{
+  position:relative;
+  height:210px;
+  overflow:hidden;
+}
+.car-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .7s var(--ease);
+  display:block;
+}
+.car-card:hover img{transform:scale(1.05);}
+.price-badge{
+  position:absolute;
+  top:14px;right:0;
+  background:var(--gold);
+  color:#000;
+  font-family:'Bebas Neue';
+  font-size:1rem;
+  letter-spacing:.1em;
+  padding:6px 18px 6px 14px;
+  clip-path:polygon(10px 0,100% 0,100% 100%,0 100%);
+  font-weight:600;
+  z-index:2;
+}
+.card-content{
+  padding:20px 20px 22px;
+}
+.card-brand-tag{
+  font-size:.62rem;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:6px;
+}
+.card-name{
+  font-family:'Bebas Neue';
+  font-size:1.7rem;
+  letter-spacing:.05em;
+  line-height:1.1;
+  color:#fff;
+  margin-bottom:12px;
+}
+.card-specs-mini{
+  display:flex;
+  gap:16px;
+  margin:12px 0 8px;
+  flex-wrap:wrap;
+}
+.mini-spec{
+  background:rgba(0,0,0,.45);
+  padding:4px 10px;
+  border-left:2px solid var(--gold);
+  font-size:.8rem;
+  font-weight:500;
+}
+.mini-spec span{
+  color:var(--gold);
+  font-weight:700;
+  margin-right:5px;
+}
+.card-footnote{
+  font-size:.7rem;
+  color:var(--gray);
+  margin-top:12px;
+  letter-spacing:.04em;
+  border-top:1px solid rgba(255,255,255,.05);
+  padding-top:12px;
+  display:flex;
+  justify-content:space-between;
+}
+.click-hint{
+  color:var(--gold-dark);
+  font-size:.68rem;
+  font-weight:500;
+  text-transform:uppercase;
+}
+
+/* ============================
+   DETAIL PAGE (con historia personalizada)
+   ============================ */
+.detail-page{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(135deg,#050505,#111);
+  z-index:99999;
+  overflow-y:auto;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .5s var(--ease);
+}
+.detail-page.active{
+  opacity:1;
+  pointer-events:all;
+}
+.detail-hero{
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  align-items:flex-end;
+  padding:80px;
+  background-size:cover;
+  background-position:center 30%;
+  background-repeat:no-repeat;
+}
+.detail-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.96) 15%,rgba(0,0,0,.55) 55%,rgba(0,0,0,.75));
+}
+.detail-content{
+  position:relative;
+  z-index:2;
+  max-width:880px;
+}
+.detail-brand{
+  color:var(--gold);
+  font-size:.9rem;
+  letter-spacing:.4em;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+.detail-title{
+  font-family:'Bebas Neue';
+  font-size:clamp(4rem,10vw,7rem);
+  line-height:.9;
+  letter-spacing:.06em;
+  margin-bottom:20px;
+}
+.detail-description{
+  color:#ddd;
+  line-height:1.75;
+  font-size:1.05rem;
+  margin-bottom:35px;
+  max-width:800px;
+  background:rgba(0,0,0,.45);
+  padding:20px;
+  border-left:3px solid var(--gold);
+  backdrop-filter:blur(4px);
+}
+.detail-specs{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:18px;
+  margin-top:20px;
+}
+.detail-spec{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(212,175,55,.2);
+  padding:22px;
+  backdrop-filter:blur(10px);
+}
+.detail-spec h4{
+  color:#aaa;
+  font-size:.7rem;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+.detail-spec p{
+  color:var(--gold);
+  font-family:'Bebas Neue';
+  font-size:2rem;
+  letter-spacing:.05em;
+}
+.back-btn{
+  position:absolute;
+  top:30px;
+  left:30px;
+  z-index:15;
+  background:rgba(0,0,0,.65);
+  border:1px solid rgba(212,175,55,.4);
+  color:var(--gold);
+  padding:14px 28px;
+  cursor:pointer;
+  font-family:'Rajdhani',sans-serif;
+  font-weight:700;
+  letter-spacing:.12em;
+  transition:.3s ease;
+  backdrop-filter:blur(8px);
+}
+.back-btn:hover{
+  background:var(--gold);
+  color:#000;
+  border-color:transparent;
+}
+
+/* ============================
+   CHATBOT
+   ============================ */
+.chat-trigger{
+  position:fixed;bottom:28px;right:28px;z-index:900;
+  width:60px;height:60px;border-radius:50%;
+  border:none;background:var(--gold);
+  font-size:1.5rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 28px rgba(212,175,55,.45);
+  transition:.3s var(--ease);
+}
+.chat-trigger:hover{transform:scale(1.12);}
+.pulse{
+  position:absolute;inset:-5px;border-radius:50%;
+  border:2px solid rgba(212,175,55,.35);
+  animation:pulseOut 2.8s ease-out infinite;
+}
+@keyframes pulseOut{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.7);opacity:0}}
+.chatbot{
+  position:fixed;right:28px;bottom:106px;
+  width:395px;height:590px;z-index:899;
+  background:var(--dark2);
+  border:1px solid rgba(212,175,55,.22);
+  display:flex;flex-direction:column;
+  box-shadow:0 30px 80px rgba(0,0,0,.75);
+  overflow:hidden;
+  opacity:0;transform:translateY(18px) scale(.95);
+  pointer-events:none;
+  transition:opacity .35s var(--ease),transform .35s cubic-bezier(.34,1.56,.64,1);
+}
+.chatbot.open{opacity:1;transform:none;pointer-events:all;}
+.chat-hdr{
+  padding:15px 18px;
+  background:linear-gradient(135deg,#0e0e0e,#151515);
+  border-bottom:1px solid rgba(212,175,55,.13);
+  display:flex;align-items:center;gap:12px;
+}
+.chat-avatar{
+  width:40px;height:40px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold-dark),var(--gold));
+  display:flex;align-items:center;justify-content:center;font-size:1.15rem;
+}
+.chat-hdr-name{
+  font-family:'Bebas Neue';font-size:1.2rem;
+  letter-spacing:.12em;color:var(--gold);
+}
+.chat-hdr-status{
+  font-size:.67rem;color:#5db05d;letter-spacing:.1em;
+}
+.chat-hdr-status::before{content:'●';margin-right:5px;animation:blink 2s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.chat-close{margin-left:auto;background:none;border:none;color:var(--gray);cursor:pointer;font-size:1.1rem;}
+.chat-msgs{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:11px;}
+.msg{padding:11px 14px;line-height:1.65;max-width:90%;font-size:.88rem;animation:msgIn .3s ease-out;}
+.bot{background:linear-gradient(135deg,#191919,#1f1f1f);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;color:#ccc;align-self:flex-start;}
+.user{background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:#000;font-weight:600;border-radius:8px 0 0 8px;align-self:flex-end;}
+.typing{display:flex;gap:5px;padding:13px 15px;background:#191919;border-left:3px solid var(--gold);border-radius:0 8px 8px 0;width:fit-content;}
+.t-dot{width:7px;height:7px;background:var(--gold);border-radius:50%;animation:dotBounce 1.3s infinite;}
+@keyframes dotBounce{0%,60%,100%{transform:translateY(0);opacity:.45}30%{transform:translateY(-9px);opacity:1}}
+.chat-opts{padding:13px;display:grid;grid-template-columns:1fr 1fr;gap:7px;border-top:1px solid rgba(212,175,55,.09);background:rgba(0,0,0,.4);}
+.chat-opts button{padding:10px;background:rgba(18,18,18,.9);color:#c0c0c0;border:1px solid rgba(212,175,55,.2);cursor:pointer;font-family:'Rajdhani';font-size:.79rem;text-align:left;transition:.2s;}
+.chat-opts button:hover{background:rgba(212,175,55,.14);border-color:var(--gold);color:var(--gold);}
+footer{
+  background:var(--dark2);padding:80px 40px 40px;text-align:center;
+  border-top:1px solid rgba(212,175,55,.1);position:relative;overflow:hidden;
+}
+footer::before{
+  content:'APEX';position:absolute;top:-40px;left:50%;transform:translateX(-50%);
+  font-family:'Bebas Neue';font-size:18rem;color:rgba(255,255,255,.012);pointer-events:none;
+}
+.footer-logo{font-family:'Bebas Neue';font-size:3.4rem;color:var(--gold);letter-spacing:.15em;margin-bottom:14px;}
+.footer-txt{color:var(--gray);max-width:680px;margin:0 auto 30px;line-height:1.8;}
+@media(max-width:900px){
+  nav{padding:0 18px}.catalog-wrap{padding:0 16px}.cars-grid{grid-template-columns:1fr}
+  .chatbot{width:calc(100vw - 18px);right:9px}.hero-stats{gap:28px}
+  .detail-hero{padding:40px;}
+}
+@media(max-width:480px){.hero h1{font-size:3.8rem}.hero-stats{flex-direction:column;gap:20px}}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginPage">
+  <div class="login-bg"></div><div class="login-lines"><span></span><span></span><span></span><span></span></div>
+  <div class="corner-tl"></div><div class="corner-br"></div>
+  <div class="login-panel">
+    <div class="login-logo">APEX MOTORS</div>
+    <div class="login-tagline">Catálogo de Vehículos </div>
+    <div class="login-sep"><span>Identificación</span></div>
+    <div class="login-field"><label>Usuario</label><input type="text" id="lu" placeholder="Ingresa tu usuario"></div>
+    <div class="login-field"><label>Contraseña</label><input type="password" id="lp" placeholder="••••••••"></div>
+    <div id="loginError" style="display:none;color:#e74c3c;font-size:.78rem;text-align:center;margin-bottom:10px;letter-spacing:.05em;border:1px solid rgba(231,76,60,.25);padding:10px;background:rgba(231,76,60,.06);">⚠ Usuario o contraseña incorrectos</div>
+    <button class="login-btn" onclick="doLoginCheck()">ACCEDER AL CATÁLOGO</button>
+    <div class="login-demo">Acceso especial: <span onclick="doLogin()">Ingresar como Administrador</span></div>
+  </div>
+</div>
+
+<!-- MAIN APP -->
+<div id="mainApp">
+  <nav>
+    <div class="nav-logo">APEX MOTORS</div>
+    <div class="nav-menu-wrap">
+      <button class="nav-hamburger" id="navHamburger" onclick="toggleBrandMenu()" title="Marcas">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-dropdown" id="navDropdown">
+        <div class="nav-dropdown-inner" id="navDropdownInner"></div>
+      </div>
+    </div>
+    <div class="nav-right"><button class="nav-logout" onclick="location.reload()">⎋ Salir</button></div>
+  </nav>
+  <section class="hero"><div class="hero-bg"></div><div class="hero-content"><div class="hero-badge">Catálogo de vehiculos</div><h1>APEX<br><span>ULTRA</span></h1><p class="hero-sub">Más de 280 superdeportivos premium distribuidos entre los fabricantes de élite más exclusivos del mundo.</p><div class="hero-stats"> <div><div class="h-stat-val" id="statBrands">0</div><div class="h-stat-lbl">Marcas</div></div><div><div class="h-stat-val" id="statModels">0</div><div class="h-stat-lbl">Modelos</div></div><div><div class="h-stat-val">$30M</div><div class="h-stat-lbl">Precio Máx.</div></div></div></div><div class="hero-scroll"><div class="hero-scroll-label">Explorar</div><div class="scroll-bar"></div></div></section>
+  <div class="catalog-wrap"><div id="catalogContainer"></div></div>
+  <footer><div class="footer-logo">APEX MOTORS ULTRA</div><p class="footer-txt">Plataforma profesional de exposición automotriz enfocada en hiperdeportivos, superdeportivos y vehículos de edición limitada. Cada modelo incluye su historia y especificaciones técnicas detalladas.</p><div class="footer-bottom">© 2026 APEX MOTORS ULTRA &nbsp;·&nbsp; Proyecto Universitario &nbsp;·&nbsp; Todos los derechos reservados</div></footer>
+</div>
+
+<!-- CHATBOT -->
+<button class="chat-trigger" onclick="toggleChat()"><div class="pulse"></div>🏎️</button>
+<div class="chatbot" id="chatbot"><div class="chat-hdr"><div class="chat-avatar">🤖</div><div><div class="chat-hdr-name">APEX</div><div class="chat-hdr-status">Asistente en línea</div></div><button class="chat-close" onclick="toggleChat()">✕</button></div><div class="chat-msgs" id="chatMsgs"></div><div class="chat-opts" id="chatOpts"></div></div>
+
+<!-- DETAIL OVERLAY con historia personalizada -->
+<div class="detail-page" id="detailPage"><button class="back-btn" onclick="closeDetail()">← VOLVER AL CATÁLOGO</button><div class="detail-hero" id="detailHero"><div class="detail-overlay"></div><div class="detail-content"><div class="detail-brand" id="detailBrand"></div><div class="detail-title" id="detailTitle"></div><div class="detail-description" id="detailStory"></div><div class="detail-specs"><div class="detail-spec"><h4>Potencia</h4><p id="detailHp"></p></div><div class="detail-spec"><h4>Velocidad Máx</h4><p id="detailSpeed"></p></div><div class="detail-spec"><h4>Precio</h4><p id="detailPrice"></p></div></div></div></div></div>
+
+<script>
+// ========== BASE DE DATOS COMPLETA (SEGUNDO ARCHIVO) ==========
+const BRANDS={
+Ferrari:[
+['SF90 Stradale','1000 HP','340 km/h','$625,000','https://f1rst-motors.s3.me-central-1.amazonaws.com/cars/1714734578935-ferrari_sf90_4007579941.jpeg'],
+['LaFerrari','963 HP','350 km/h','$1,400,000','https://www.supercars.net/blog/wp-content/uploads/2016/11/Ferrari-LaFerrari-Wallpaper.jpg'],
+['F8 Tributo','710 HP','340 km/h','$350,000','https://hips.hearstapps.com/hmg-prod/images/2020-ferrari-f8-tributo-214-1590706671.jpg'],
+['812 Superfast','789 HP','339 km/h','$380,000','https://www.hdcarwallpapers.com/download/novitec_ferrari_812_superfast_n_largo_s_2023-3840x2160.jpg'],
+['F40','478 HP','324 km/h','$1,200,000','https://wallpaperaccess.com/full/1855044.jpg'],
+['Daytona SP3','840 HP','340 km/h','$2,200,000','https://4kwallpapers.com/images/wallpapers/ferrari-daytona-sp3-3840x2160-20178.jpg'],
+['296 GTB','818 HP','330 km/h','$420,000','https://i.pinimg.com/736x/ba/4b/fd/ba4bfdb18deaf8527fc35b31b0606b70.jpg'],
+['Roma','612 HP','320 km/h','$250,000','https://www.supercars.net/blog/wp-content/uploads/2020/07/2020-Ferrari-Roma-008-2160-scaled.jpg'],
+['Monza SP2','810 HP','300 km/h','$1,800,000','https://wallpapercat.com/w/full/a/6/b/1769372-3840x2160-desktop-4k-ferrari-monza-wallpaper-photo.jpg'],
+['488 Pista','710 HP','340 km/h','$420,000','https://mir-s3-cdn-cf.behance.net/project_modules/fs/fa904196451919.5eaeea4b73c73.jpg']
+],
+Lamborghini:[
+['Aventador SVJ','770 HP','350 km/h','$517,000','https://wallpapercat.com/w/full/1/2/8/893026-3840x2160-desktop-4k-lamborghini-aventador-wallpaper.jpg'],
+['Huracán STO','640 HP','310 km/h','$331,000','https://www.hdcarwallpapers.com/walls/novitec_lamborghini_huracan_sto_2022_4k_5-HD.jpg'],
+['Revuelto','1001 HP','350 km/h','$700,000','https://doublemesh.com/wp-content/uploads/2023/10/2024-Lamborghini-Revuelto-Photo-Wallpaper.jpg'],
+['Sian FKP 37','819 HP','350 km/h','$3,600,000','https://www.hdcarwallpapers.com/walls/lamborghini_sian_fkp_37_black_5k-HD.jpg'],
+['Countach LPI','814 HP','355 km/h','$2,500,000','https://www.hdcarwallpapers.com/walls/2022_lamborghini_countach_lpi_800_4_4k_3-HD.jpg'],
+['Gallardo Superleggera','570 HP','325 km/h','$250,000','https://wallpapercave.com/wp/wp13335984.jpg'],
+['Murcielago SV','670 HP','342 km/h','$450,000','https://i.pinimg.com/736x/32/0a/a8/320aa8b314e8397a69ce5ca791b0707f.jpg'],
+['Veneno','750 HP','355 km/h','$4,500,000','https://i.pinimg.com/736x/c3/1f/57/c31f57bc49f02300646d23ab8623397d.jpg'],
+['Centenario','770 HP','350 km/h','$2,000,000','https://wallpaper.forfun.com/fetch/ce/ceea929d38221bbeeb7c275c30a42c87.jpeg'],
+['Essenza SCV12','830 HP','355 km/h','$2,600,000','https://images6.alphacoders.com/109/1096489.jpg']
+],
+Bugatti:[
+['Chiron Super Sport 300+','1578 HP','490 km/h','$3,900,000','https://www.supercars.net/blog/wp-content/uploads/2020/07/2021-Bugatti-Chiron-Super-Sport-300-004-1080.jpg'],
+['Veyron Super Sport','1200 HP','431 km/h','$2,400,000','https://c4.wallpaperflare.com/wallpaper/389/224/905/bugatti-veyron-super-sports-wallpaper-preview.jpg'],
+['Divo','1479 HP','380 km/h','$5,800,000','https://cdn.wallpapersafari.com/60/4/9mN7An.jpg'],
+['Bolide','1825 HP','500 km/h','$4,700,000','https://www.hdcarwallpapers.com/walls/bugatti_bolide_4k-HD.jpg'],
+['Mistral','1600 HP','420 km/h','$5,000,000','https://www.hdcarwallpapers.com/walls/bugatti_w16_mistral_2-HD.jpg'],
+['Centodieci','1600 HP','380 km/h','$9,000,000','https://c4.wallpaperflare.com/wallpaper/943/862/553/bugatti-centodieci-bugatti-car-vehicle-white-cars-hd-wallpaper-preview.jpg'],
+['EB110','603 HP','351 km/h','$1,500,000','https://img.goodfon.com/original/4000x2500/c/90/bugatti-bugatti-eb110-gt-eb-110-17.jpg'],
+['La Voiture Noire','1500 HP','420 km/h','$18,000,000','https://4kwallpapers.com/images/wallpapers/bugatti-chiron-pur-3840x2160-17262.jpg'],
+['Chiron Pur Sport','1500 HP','350 km/h','$3,600,000','https://www.supercars.net/blog/wp-content/uploads/2021/01/2021-Bugatti-Chiron-Pur-Sport-001-2160-scaled.jpg'],
+['Tourbillon','1800 HP','445 km/h','$4,100,000','https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iQ34To9OcH.4/v2/1200x800.jpg']
+],
+McLaren:[
+['P1','903 HP','350 km/h','$1,300,000','https://wallpapers.com/images/high/project-cars-4k-mclaren-p1-racing-536msgo1blsadazj.jpg'],
+['Senna','800 HP','340 km/h','$1,000,000','https://www.supercars.net/blog/wp-content/uploads/2020/07/1078422-scaled.jpg'],
+['Speedtail','1035 HP','403 km/h','$2,300,000','https://4kwallpapers.com/images/wallpapers/mclaren-speedtail-hybrid-sports-car-2021-3840x2160-6171.jpeg'],
+['765LT','755 HP','330 km/h','$450,000','https://www.hdcarwallpapers.com/walls/topcar_mclaren_765lt_spider_carbon_edition_2023_4k-HD.jpg'],
+['720S','710 HP','341 km/h','$320,000','https://4kwallpapers.com/images/wallpapers/mclaren-720s-black-3840x2160-18439.jpg'],
+['Artura','671 HP','330 km/h','$280,000','https://pixelz.cc/wp-content/uploads/2023/11/mclaren-artura-trophy-uhd-4k-wallpaper.jpg'],
+['F1','627 HP','386 km/h','$20,000,000','https://4kwallpapers.com/images/wallpapers/mclaren-mcl38-f1-3840x2160-15849.jpg'],
+['Elva','804 HP','326 km/h','$1,700,000','https://www.hdcarwallpapers.com/walls/mclaren_elva_2021_4k-HD.jpg'],
+['600LT','592 HP','328 km/h','$250,000','https://w0.peakpx.com/wallpaper/502/115/HD-wallpaper-mclaren-600lt-spider-2019-white-sports-car-white-sports-coupe-white-600lt-black-wheels-british-sports-cars-mclaren.jpg'],
+['GT','612 HP','326 km/h','$220,000','https://4kwallpapers.com/images/wallpapers/mclaren-gt-3440x1440-13344.jpg']
+],
+BMW:[
+['M8 Competition','617 HP','305 km/h','$145,000','https://cdn.motor1.com/images/mgl/43kwJ/s1/bmw-m8-competition-coupe-by-manhart.webp'],
+['M5 CS','627 HP','305 km/h','$142,000','https://hips.hearstapps.com/hmg-prod/images/2022-bmw-m5-cs-114-1640399208.jpg?crop=1.00xw:0.752xh;0,0.111xh&resize=1200:'],
+['XM Label Red','738 HP','290 km/h','$185,000','https://cdn.motor1.com/images/mgl/3WGyVj/s1/bmw-xm-label-red-2023.jpg'],
+['i8','369 HP','250 km/h','$160,000','https://static0.topspeedimages.com/wordpress/wp-content/uploads/jpg/201711/bmw-i8-la-24.jpg'],
+['M4 CSL','543 HP','307 km/h','$140,000','https://cdn.bmwblog.com/wp-content/uploads/2022/07/bmw-m4-csl-track-12.jpg'],
+['M3 Competition','503 HP','290 km/h','$95,000','https://images.hdqwalls.com/wallpapers/bmw-m3-competition-rv.jpg'],
+['Z4 M40i','382 HP','250 km/h','$70,000','https://w0.peakpx.com/wallpaper/385/849/HD-wallpaper-2023-bmw-z4-m40i-convertible-inline-6-turbo-car.jpg'],
+['X6 M','617 HP','290 km/h','$130,000','https://w0.peakpx.com/wallpaper/352/478/HD-wallpaper-bmw-x6-m-competition-2020-front-view-exterior-black-suv-new-black-x6-german-cars-bmw.jpg'],
+['M2','453 HP','285 km/h','$68,000','https://c4.wallpaperflare.com/wallpaper/62/628/858/bmw-bmw-sports-coupe-racing-car-2020-hd-wallpaper-preview.jpg'],
+['Alpina B8','612 HP','324 km/h','$165,000','https://4kwallpapers.com/images/wallpapers/bmw-alpina-b8-gt-7680x4320-20819.jpg']
+],
+'Mercedes-Benz':[
+['AMG GT Black Series','720 HP','325 km/h','$335,000','https://i.ytimg.com/vi/NBvkP_3vVJo/maxresdefault.jpg'],
+['AMG One','1063 HP','352 km/h','$2,700,000','https://w0.peakpx.com/wallpaper/516/852/HD-wallpaper-2023-mercedes-amg-one-coupe-hybrid-turbo-v6-car.jpg'],
+['SLS AMG Black Series','622 HP','315 km/h','$450,000','https://wallpaperaccess.com/full/2728783.jpg'],
+['C63 AMG','503 HP','290 km/h','$90,000','https://4kwallpapers.com/images/wallpapers/performmaster-mercedes-amg-c63-v8-final-edition-2022-5k-8k-3840x2160-8327.jpeg'],
+['E63 S AMG','603 HP','300 km/h','$125,000','https://www.hdcarwallpapers.com/walls/2021_mercedes_amg_e_63_s_4matic__4k-HD.jpg'],
+['SL63 AMG','577 HP','315 km/h','$180,000','https://images2.alphacoders.com/120/1204186.jpg'],
+['G63 AMG','577 HP','240 km/h','$190,000','https://images.unsplash.com/photo-1648413653877-ade5eefd2f1b?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZzYzfGVufDB8fDB8fHww'],
+['CLS63 AMG','577 HP','300 km/h','$120,000','https://images3.alphacoders.com/612/612341.jpg'],
+['Project Maybach','750 HP','250 km/h','$1,000,000','https://www.hdcarwallpapers.com/walls/project_maybach_with_virgil_abloh_2021_4k-HD.jpg'],
+['AMG GT 63 S','630 HP','315 km/h','$170,000','https://www.hdcarwallpapers.com/walls/mercedes_amg_gt_63_s_e_performance_4_door_coupe_2022_2_5k_2-HD.jpg']
+],
+Audi:[
+['R8 V10 Performance','602 HP','331 km/h','$210,000','https://www.hdcarwallpapers.com/download/audi_r8_spyder_v10_performance_rwd_2021_4k_8k-5120x2880.jpg'],
+['RS e-tron GT','637 HP','250 km/h','$145,000','https://images6.alphacoders.com/136/1367983.jpeg'],
+['RS7 Performance','621 HP','305 km/h','$135,000','https://4kwallpapers.com/images/walls/thumbs_2t/22589.jpg'],
+['TT RS','394 HP','280 km/h','$78,000','https://images.alphacoders.com/127/1277790.jpg'],
+['RS6 Avant','621 HP','305 km/h','$145,000','https://i.pinimg.com/736x/ae/c9/94/aec994637150268889b17bf9ce2041a9.jpg'],
+['RS5 Coupe','444 HP','280 km/h','$92,000','https://4kwallpapers.com/images/wallpapers/audi-rs-5-coupe-2020-3840x2160-3021.jpg'],
+['SQ8','500 HP','250 km/h','$105,000','https://www.hdcarwallpapers.com/walls/abt_audi_sq8_tdi_4k_2-HD.jpg'],
+['S8','563 HP','305 km/h','$130,000','https://c4.wallpaperflare.com/wallpaper/228/841/107/car-audi-audi-s8-wallpaper-preview.jpg'],
+['RS3','401 HP','290 km/h','$65,000','https://w0.peakpx.com/wallpaper/240/828/HD-wallpaper-abt-audi-rs-3-s-sedan-2024.jpg'],
+['RS Q8','631 HP','305 km/h','$150,000','https://images.alphacoders.com/138/1383453.jpg']
+],
+Koenigsegg:[
+['Jesko Absolut','1600 HP','531 km/h','$3,000,000','https://4kwallpapers.com/images/wallpapers/koenigsegg-jesko-absolut-prototype-sports-cars-hyper-sports-7680x4320-7966.jpg'],
+['Regera','1500 HP','410 km/h','$2,100,000','https://images.alphacoders.com/113/1139928.jpg'],
+['Agera RS','1341 HP','447 km/h','$2,500,000','https://www.supercars.net/blog/wp-content/uploads/2020/10/2015-Koenigsegg-Agera-RS-010-1600.jpg'],
+['Gemera','1700 HP','400 km/h','$1,700,000','https://w0.peakpx.com/wallpaper/679/98/HD-wallpaper-koenigsegg-gemera-2020-koenigsegg-gemera-cars.jpg'],
+['CCX','806 HP','395 km/h','$1,200,000','https://w0.peakpx.com/wallpaper/859/521/HD-wallpaper-koenigsegg-ccx-windows.jpg'],
+['CCR','806 HP','388 km/h','$900,000','https://wallpapercave.com/wp/wp3590953.jpg'],
+['Jesko Attack','1600 HP','483 km/h','$3,200,000','https://www.supercars.net/blog/wp-content/uploads/2020/10/2020-Koenigsegg-Jesko-007-2160-scaled.jpg'],
+['One:1','1340 HP','440 km/h','$2,800,000','https://images.alphacoders.com/541/thumb-1920-541152.jpg'],
+['CC850','1385 HP','450 km/h','$3,700,000','https://images5.alphacoders.com/139/1392833.jpg'],
+['Trevita','1018 HP','410 km/h','$4,800,000','https://wallpapercave.com/wp/wp1856729.jpg']
+],
+Pagani:[
+['Huayra BC','791 HP','383 km/h','$3,500,000','https://images5.alphacoders.com/843/843517.jpg '],
+['Zonda Cinque','678 HP','349 km/h','$2,000,000','https://www.hdcarwallpapers.com/download/pagani_zonda_cinque_roadster_4k-3840x2160.jpg'],
+['Utopia','852 HP','370 km/h','$2,600,000','https://www.hdcarwallpapers.com/download/pagani_utopia_roadster_2024_8k-5120x2880.jpg'],
+['Huayra R','850 HP','385 km/h','$3,100,000','https://www.hdcarwallpapers.com/download/pagani_huayra_r_4k-2560x1440.jpg'],
+['Zonda Revolucion','800 HP','350 km/h','$2,800,000','https://cdnb.artstation.com/p/assets/images/images/047/634/369/large/charan-reddy-7-lc1k-3-1-nosid.jpg?1648059019'],
+['Huayra Roadster','754 HP','370 km/h','$3,400,000','https://www.hdcarwallpapers.com/download/pagani_huayra_roadster_tempesta_8k-3840x2160.jpg'],
+['Imola','827 HP','383 km/h','$5,400,000','https://www.hdcarwallpapers.com/download/pagani_imola_roadster_bmf_5k-3840x2160.jpg'],
+['Codalunga','840 HP','370 km/h','$7,000,000','https://www.hdcarwallpapers.com/walls/pagani_huayra_codalunga_4k-HD.jpg'],
+['Zonda F','650 HP','345 km/h','$1,500,000','https://w0.peakpx.com/wallpaper/340/940/HD-wallpaper-2005-pagani-zonda-f-coupe-v12-car.jpg'],
+['Zonda R','750 HP','375 km/h','$1,600,000','https://www.purosautos.com/wp-content/uploads/2021/07/Pagani-Zonda-R.jpg']
+],
+AstonMartin:[
+['Valkyrie','1160 HP','402 km/h','$3,200,000','https://media.gq-magazine.co.uk/photos/6405fb643e977a7efb8a7764/master/pass/Aston-Martin-Valkyrie-HED.jpg'],
+['Valhalla','937 HP','350 km/h','$1,000,000','https://www.supercars.net/blog/wp-content/uploads/2025/01/2026-Aston-Martin-Valhalla-006-2160-scaled-1.jpg'],
+['DBS Superleggera','715 HP','340 km/h','$330,000','https://cdn.mos.cms.futurecdn.net/dNQf2Vkoe32d3yqrHpGR2X.jpg'],
+['DBX707','697 HP','310 km/h','$240,000','https://i.pinimg.com/736x/8c/10/c2/8c10c233330f57717e83bf287e2adf4a.jpg'],
+['Vantage F1 Edition','527 HP','314 km/h','$170,000','https://w0.peakpx.com/wallpaper/56/803/HD-wallpaper-aston-martin-vantage-f1-edition.jpg'],
+['One-77','750 HP','354 km/h','$1,800,000','https://www.mad4wheels.com/img/free-car-images/mobile/3588/aston-martin-one-77-2009-315741.jpg'],
+['Victor','836 HP','354 km/h','$3,000,000','https://i.redd.it/63gv75nzquua1.jpg'],
+['Vanquish','568 HP','324 km/h','$290,000','https://www.hdcarwallpapers.com/download/aston_martin_vanquish_2025-3840x2160.jpg'],
+['Rapide S','552 HP','327 km/h','$210,000','https://imgcdn.zigwheels.co.th/large/gallery/exterior/1/3/aston-martin-rapide-s-front-angle-low-view-156619.jpg'],
+['DB12','671 HP','325 km/h','$250,000','https://4kwallpapers.com/images/wallpapers/aston-martin-db12-7680x4320-23506.jpg']
+],
+Nissan:[
+['GT-R Nismo','600 HP','330 km/h','$220,000','https://images8.alphacoders.com/485/thumb-1920-485057.jpg'],
+['370Z Nismo','350 HP','250 km/h','$50,000','https://cdn.wallpapersafari.com/97/74/H3V164.jpg'],
+['Skyline GT-R R34','330 HP','267 km/h','$180,000','https://wallpapercat.com/w/full/2/e/7/1394490-3840x2160-desktop-4k-skyline-car-wallpaper.jpg'],
+['Z Proto','400 HP','285 km/h','$55,000','https://cimg1.ibsrv.net/ibimg/hgm/1920x1080-1/100/761/nissan_100761293.jpg'],
+['Silvia S15','250 HP','245 km/h','$40,000','https://i.pinimg.com/736x/de/51/4b/de514b108e9aabb7a1fe96d45432dfbd.jpg'],
+['GT-R T-Spec','565 HP','315 km/h','$180,000','https://cimg0.ibsrv.net/ibimg/hgm/1920x1080-1/100/806/2021-nissan-gt-r_100806456.jpg'],
+['Fairlady Z','298 HP','250 km/h','$48,000','https://backiee.com/static/wallpapers/1000x563/207037.jpg'],
+['Skyline R33','276 HP','250 km/h','$90,000','https://cdn.wallpapersafari.com/49/37/bqhNOf.jpg'],
+['Patrol Nismo','428 HP','240 km/h','$110,000','https://espirituracer.com/archivos/2021/03/nissan-patrol-nismo-2021-2.jpg'],
+['Leaf Nismo RC','322 HP','230 km/h','$120,000','https://wieck-nissanao-production.s3.amazonaws.com/photos/ad7db76ad5154e792740cb3672d2d01337073f2f/preview-928x522.jpg']
+],
+Toyota:[
+['GR Supra','382 HP','250 km/h','$58,000','https://4kwallpapers.com/images/wallpapers/toyota-gr-supra-mkv-5120x2880-22079.jpg'],
+['GR Corolla','300 HP','230 km/h','$45,000','https://global.toyota/pages/news/images/2025/02/04/1330/12_s.jpg'],
+['Land Cruiser GR','409 HP','210 km/h','$95,000','https://www.hdcarwallpapers.com/walls/toyota_land_cruiser_gr_sport_2021-HD.jpg'],
+['LFA','552 HP','325 km/h','$950,000','https://img.goodfon.com/wallpaper/big/8/84/lexus-lfa-nurburgring-performance-package-lexus-lfa-white.webp'],
+['GR86','228 HP','226 km/h','$34,000','https://img.goodfon.com/wallpaper/big/1/c7/toyota-gr-86-toyota-gr-86-rz-40th-anniversary-limited.webp'],
+['Century SUV','406 HP','180 km/h','$170,000','https://4kwallpapers.com/images/wallpapers/toyota-century-2025-5120x2880-24441.jpg'],
+['Hilux GR Sport','221 HP','175 km/h','$60,000','https://i.pinimg.com/736x/08/10/8a/08108aa26e1a3908d0cb8187497bdee3.jpg'],
+['Crown Sport','340 HP','230 km/h','$68,000','https://images.carexpert.com.au/cms/v1/media/2023-10-toyota-crown-sport-1.jpg'],
+['Supra mk IV','220 HP','250 km/h','$42,000','https://images.pexels.com/photos/9212878/pexels-photo-9212878.jpeg?cs=srgb&dl=pexels-dbaler-9212878.jpg&fm=jpg'],
+['Sequoia TRD','437 HP','210 km/h','$82,000','https://www.hdcarwallpapers.com/download/2023_toyota_sequoia_trd_pro_5k-5120x2880.jpg']
+],
+Chevrolet:[
+['Corvette ZR1','1064 HP','375 km/h','$190,000','https://www.corvsport.com/wp-content/uploads/2020/06/255208.jpg'],
+['Camaro ZL1','650 HP','318 km/h','$78,000','https://4kwallpapers.com/images/wallpapers/hennessey-chevrolet-camaro-zl1-the-exorcist-anniversary-3840x2160-6742.jpg'],
+['Corvette Stingray','495 HP','312 km/h','$72,000','https://www.corvsport.com/wp-content/uploads/2020/06/37206.jpg'],
+['Silverado ZR2','420 HP','210 km/h','$85,000','https://w0.peakpx.com/wallpaper/264/145/HD-wallpaper-chevrolet-silverado-2500-zr2-bison-2024.jpg'],
+['Tahoe RST','433 HP','200 km/h','$90,000','https://w0.peakpx.com/wallpaper/307/511/HD-wallpaper-chevrolet-tahoe-rst-hpe800-exterior-front-view-black-suv-tuning-tahoe-american-cars-rst-hpe800-chevrolet.jpg'],
+['Corvette ZR1X','1250 HP','375 km/h','$208,000','https://4kwallpapers.com/images/wallpapers/chevrolet-corvette-3840x2160-22811.jpg'],
+['Corvette E-Ray','655 HP','312 km/h','$120,000','https://4kwallpapers.com/images/walls/thumbs/10168.jpeg'],
+['Colorado ZR2','310 HP','190 km/h','$60,000','https://i.pinimg.com/736x/df/31/49/df3149ef785daa4a979e9cb51cdc499d.jpg'],
+['Suburban High Country','420 HP','190 km/h','$95,000','https://www.hdcarwallpapers.com/download/2021_chevrolet_suburban_high_country_4k-3840x2160.jpg'],
+['Covette C5','350 HP','282 km/h','$20,000','https://wallpapercave.com/wp/wp11213535.jpg']
+],
+Dodge:[
+['Challenger SRT Demon 170','1025 HP','343 km/h','$120,000','https://cdn.wallpapersafari.com/3/76/fXcYQz.jpg'],
+['Charger Hellcat Redeye','797 HP','327 km/h','$95,000','https://i.pinimg.com/736x/85/1b/32/851b32d67ead7a9b832bfdfac0217efa.jpg'],
+['Durango SRT Hellcat','710 HP','290 km/h','$110,000','https://www.hdcarwallpapers.com/walls/2021_dodge_durango_srt_hellcat_4k-HD.jpg'],
+['Viper ACR','645 HP','285 km/h','$250,000','https://www.hdcarwallpapers.com/download/dodge_viper_acr_5k_3-3840x2160.jpg'],
+['Charger 70','230 HP','211 km/h','$124,000','https://wallpapers.com/images/featured/1969-dodge-charger-uc28t6kojvpwi0e0.jpg'],
+['Charger Daytona EV','670 HP','320 km/h','$88,000','https://www.hdcarwallpapers.com/walls/dodge_charger_daytona_srt_concept_2022_4k-HD.jpg'],
+['Ram TRX','702 HP','190 km/h','$115,000','https://wallpapers.com/images/hd/shiny-black-ram-truck-qhlyl54uywq4ey3z.jpg'],
+['Challenger Scat Pack','485 HP','290 km/h','$62,000','https://cdn.wallpapersafari.com/1/44/iFS7mI.jpg'],
+['Charger Widebody','717 HP','315 km/h','$85,000','https://www.supercars.net/blog/wp-content/uploads/2021/01/2020-Dodge-Charger-SRT-Hellcat-Widebody-001-2160-scaled.jpg'],
+['Stealth Concept','850 HP','330 km/h','$150,000','https://wallpapercave.com/wp/wp15980234.jpg']
+],
+Maserati:[
+['MC20','621 HP','325 km/h','$240,000','https://wallpapercave.com/wp/wp15980234.jpg'],
+['GranTurismo Trofeo','542 HP','320 km/h','$190,000','https://www.hdcarwallpapers.com/download/maserati_granturismo_trofeo_2024_8k-3840x2160.jpg'],
+['Grecale Trofeo','523 HP','285 km/h','$110,000','https://4kwallpapers.com/images/wallpapers/maserati-grecale-folgore-2023-dark-background-5k-3440x1440-7754.jpeg'],
+['Levante Trofeo','572 HP','302 km/h','$165,000','https://www.hdcarwallpapers.com/walls/maserati_levante_trofeo_4k-HD.jpg'],
+['Quattroporte Trofeo','572 HP','326 km/h','$170,000','https://www.hdcarwallpapers.com/download/maserati_quattroporte_trofeo_2020_5k_5-3840x2160.jpg'],
+['MC12','630 HP','330 km/h','$4,000,000','https://i.redd.it/xoxdwf6ljm7b1.jpg'],
+['GranCabrio','542 HP','316 km/h','$210,000','https://www.hdcarwallpapers.com/walls/2017_maserati_grancabrio_sport_4k-HD.jpg'],
+['Spyder GT','460 HP','285 km/h','$98,000','https://platform.cstatic-images.com/large/in/v2/d1b9ed61-ebe6-59ba-9bb5-b84f81548409/7c6c69ed-9ee2-4bcd-87ed-5e6fa872111c/vnFDHRKGkn0e6s2aydIVs44pjRM.jpg'],
+['Shamal','326 HP','270 km/h','$140,000','https://wallpapers.com/images/hd/maserati-shamal-classic-car-0as9jt553ims4jlh.jpg'],
+['Ghibli Trofeo','572 HP','326 km/h','$135,000','https://w0.peakpx.com/wallpaper/472/522/HD-wallpaper-2021-maserati-ghibli-trofeo-front-three-quarter-car.jpg']
+],
+Bentley:[
+['Continental GT Speed','650 HP','335 km/h','$310,000','https://w0.peakpx.com/wallpaper/192/121/HD-wallpaper-bentley-continental-gt-vehicles.jpg'],
+['Bentayga Speed','626 HP','306 km/h','$290,000','https://www.hdcarwallpapers.com/walls/2022_bentley_bentayga_speed_space_edition_by_mulliner_4k-HD.jpg'],
+['Flying Spur Speed','626 HP','333 km/h','$280,000','https://www.supercars.net/blog/wp-content/uploads/2020/10/2020-Bentley-Flying-Spur-010-2160-scaled.jpg'],
+['Batur','730 HP','335 km/h','$2,100,000','https://4kwallpapers.com/images/wallpapers/bentley-mulliner-batur-2023-5k-2880x1800-8802.jpeg'],
+['Bacalar','650 HP','322 km/h','$2,000,000','https://4kwallpapers.com/images/wallpapers/bentley-mulliner-3840x2160-10231.jpg'],
+['Mulsanne Speed','530 HP','305 km/h','$340,000','https://wallpapercat.com/w/full/6/e/e/1743329-3840x2160-desktop-4k-bentley-mulsanne-wallpaper-photo.jpg'],
+['Azure','450 HP','270 km/h','$280,000','https://4kwallpapers.com/images/wallpapers/bentley-continental-7680x4320-22937.jpg'],
+['Arnage T','500 HP','288 km/h','$180,000','https://images6.alphacoders.com/136/1366556.jpeg'],
+['EXP 100 GT','1340 HP','300 km/h','$3,000,000','https://w0.peakpx.com/wallpaper/287/457/HD-wallpaper-bentley-exp-100-gt-luxury-cars.jpg'],
+['Continental Supersports','700 HP','336 km/h','$350,000','https://w0.peakpx.com/wallpaper/179/621/HD-wallpaper-bentley-continental-supersports-2018-new-bentley-new-continental-coupe.jpg']
+],
+'Rolls-Royce':[
+['Spectre','577 HP','250 km/h','$420,000','https://w0.peakpx.com/wallpaper/501/442/HD-wallpaper-rolls-royce-spectre-2024-luxury-car.jpg'],
+['Phantom','563 HP','250 km/h','$510,000','https://images3.alphacoders.com/131/1314801.jpg'],
+['Cullinan Black Badge','592 HP','250 km/h','$450,000','https://www.hdcarwallpapers.com/download/urban_automotive_rolls_royce_cullinan_4k-3840x2160.jpg'],
+['Ghost Black Badge','592 HP','250 km/h','$390,000','https://i.pinimg.com/736x/ba/a0/8f/baa08fdb6430dfac5e4b928cc9ce3af4.jpg'],
+['Wraith','624 HP','250 km/h','$350,000','https://w0.peakpx.com/wallpaper/292/641/HD-wallpaper-onyx-concept-rolls-royce-wraith.jpg'],
+['Dawn','563 HP','250 km/h','$370,000','https://i.pinimg.com/736x/cc/81/15/cc81150382b46b7020043f1aca27809f.jpg'],
+['Boat Tail','563 HP','250 km/h','$28,000,000','https://www.hdcarwallpapers.com/download/rolls_royce_boat_tail_2022_4k_8k_2-3840x2160.jpg'],
+['Sweptail','453 HP','250 km/h','$13,000,000','https://www.hdcarwallpapers.com/download/rolls_royce_sweptail_4k_2-2560x1440.jpg'],
+['La Rose Noire Droptail','563 HP','250 km/h','$30,000,000','https://www.supercars.net/blog/wp-content/uploads/2024/01/2024-Rolls-Royce-Droptail-La-Rose-Noire-001-2160-scaled.jpg'],
+['Cullinan Series II','600 HP','250 km/h','$470,000','https://wallpapercave.com/wp/wp13380526.jpg']
+],
+Lexus:[
+['LFA Nürburgring','562 HP','325 km/h','$1,100,000','https://images3.alphacoders.com/256/thumb-1920-256389.jpg'],
+['LC500','471 HP','270 km/h','$105,000','https://i.pinimg.com/736x/56/93/99/5693996f07e6b0008628823678e154b0.jpg'],
+['IS500 F Sport','472 HP','290 km/h','$72,000','https://w0.peakpx.com/wallpaper/575/742/HD-wallpaper-2022-lexus-is-500-f-sport-performance-launch-edition-front-three-quarter-car.jpg'],
+['RC F Track Edition','472 HP','270 km/h','$98,000','https://i.pinimg.com/736x/c9/d0/f8/c9d0f8e18503cb5ab9d9a4ae84bf7973.jpg'],
+['GX550 Overtrail','349 HP','210 km/h','$85,000','https://w0.peakpx.com/wallpaper/638/11/HD-wallpaper-lexus-gx-550-overtrail-2024.jpg'],
+['LX700h','457 HP','210 km/h','$125,000','https://hips.hearstapps.com/mtg-prod/6707e68c8820ef00089a6bba/2025lexuslx700h4.jpg?w=768&width=768&q=75&format=webp'],
+['RZ450e','308 HP','200 km/h','$65,000','https://www.hdcarwallpapers.com/walls/lexus_rz_450e_2022_2-HD.jpg'],
+['LS500 F Sport','416 HP','250 km/h','$115,000','https://www.hdcarwallpapers.com/walls/lexus_ls_500_f_sport_2021-HD.jpg'],
+['RX500h F Sport','366 HP','210 km/h','$78,000','https://www.hdcarwallpapers.com/walls/lexus_rx_500h_f_sport_performance_2022-HD.jpg'],
+['UX300e','201 HP','160 km/h','$52,000','https://www.hdcarwallpapers.com/walls/lexus_ux_300e_2021_4k-HD.jpg']
+],
+Porsche:[
+['918 Spyder','887 HP','345 km/h','$845,000','https://www.stuttcars.com/wp-content/uploads/2021/05/1012726.jpg  '],
+['911 GT2 RS','700 HP','340 km/h','$300,000','https://www.supercars.net/blog/wp-content/uploads/2020/07/2018-Porsche-911-GT2-RS-001-1080.jpg'],
+['Carrera GT','603 HP','334 km/h','$1,500,000','https://img.goodfon.com/original/4000x2657/e/29/porsche-carrera-gt-porsche-carrera-gt-31.jpg'],
+['911 Turbo S','650 HP','330 km/h','$240,000','https://cdn.mos.cms.futurecdn.net/xCJhXa8uGzbwrhJP95BoRM.jpg'],
+['Taycan Turbo GT','1108 HP','305 km/h','$250,000','https://www.stuttcars.com/wp-content/uploads/2021/05/2020_porsche_taycan_turbo_s_4k_4-HD-scaled.jpg'],
+['911 Dakar','473 HP','240 km/h','$230,000','https://w0.peakpx.com/wallpaper/115/589/HD-wallpaper-2023-porsche-911-dakar-coupe-flat-6-turbo-car.jpg'],
+['935','700 HP','340 km/h','$900,000','https://i.pinimg.com/736x/3e/43/86/3e438660850e8015936ae335fb5775e7.jpg'],
+['959','444 HP','317 km/h','$1,700,000','https://www.supercars.net/blog/wp-content/uploads/2020/07/porsche-1-1050x700-1.jpg'],
+['911 Sport Classic','543 HP','315 km/h','$320,000','https://www.mad4wheels.com/img/free-car-images/mobile/20513/porsche-911-992-sport-classic-uk-version-2023-729078.jpg'],
+['911 GT3 RS','518 HP','296 km/h','$280,000','https://w0.peakpx.com/wallpaper/12/406/HD-wallpaper-porsche-911-gt3-rs-weissach-package-2023.jpg']
+]
+}
+;
+
+// Función para generar historia única por cada auto
+function generateCarStory(brand, model, hp, speed, price) {
+  const cifra = parseInt(hp) || 800;
+  const esHibrido = model.includes("SF90") || model.includes("Revuelto") || model.includes("918") || model.includes("P1") || model.includes("Artura");
+  const esLegendario = model === "F40" || model === "F1" || model === "959" || model === "Miura" || model === "Veyron";
+  let historia = `${model} es una obra maestra de ${brand}, concebida para desafiar los límites de la ingeniería automotriz. `;
+  if (esLegendario) historia += `Presentado como un ícono inmortal, revolucionó la industria con su tecnología pionera y diseño atemporal. `;
+  else if (esHibrido) historia += `Equipado con tecnología híbrida de última generación, fusiona un motor de combustión con un sistema eléctrico de alto rendimiento. `;
+  else historia += `Su motor desarrolla ${hp} de potencia pura, alcanzando ${speed} y llevando la emoción de la conducción extrema a un nivel superior. `;
+  historia += `El chasis monocasco de fibra de carbono, la aerodinámica activa y la suspensión magnetoreológica garantizan un comportamiento insuperable en circuito. `;
+  historia += `Cada detalle, desde los escapes de titanio hasta los frenos carbocerámicos, está orientado a ofrecer la máxima experiencia de pilotaje. `;
+  historia += `Fabricado con materiales exclusivos y ensamblado a mano, representa la cúspide del lujo y la deportividad. `;
+  return historia;
+}
+
+// ===== LOGIN =====
+function doLoginCheck(){
+  const u = document.getElementById('lu').value.trim();
+  const p = document.getElementById('lp').value.trim();
+  const err = document.getElementById('loginError');
+  if(u === 'Fredy' && p === '13406469'){
+    err.style.display='none';
+    doLogin();
+  } else {
+    err.style.display='block';
+    document.getElementById('lu').style.borderColor='rgba(231,76,60,.6)';
+    document.getElementById('lp').style.borderColor='rgba(231,76,60,.6)';
+    setTimeout(()=>{
+      document.getElementById('lu').style.borderColor='';
+      document.getElementById('lp').style.borderColor='';
+    },2500);
+  }
+}
+
+// Allow Enter key for login check
+document.addEventListener('keydown',e=>{
+  if(e.key==='Enter'){
+    const lp=document.getElementById('loginPage');
+    if(lp && lp.style.display!=='none' && !lp.classList.contains('out')){
+      doLoginCheck();
+    }
+  }
+});
+
+// ===== HAMBURGER BRAND MENU =====
+function toggleBrandMenu(){
+  const btn=document.getElementById('navHamburger');
+  const dd=document.getElementById('navDropdown');
+  btn.classList.toggle('open');
+  dd.classList.toggle('open');
+}
+// Close dropdown when clicking outside
+document.addEventListener('click',function(e){
+  const wrap=document.querySelector('.nav-menu-wrap');
+  if(wrap && !wrap.contains(e.target)){
+    document.getElementById('navHamburger').classList.remove('open');
+    document.getElementById('navDropdown').classList.remove('open');
+  }
+});
+
+// ===== BRAND FILTER =====
+let currentBrandFilter = 'all';
+function filterBrand(brand){
+  currentBrandFilter = brand;
+  // Update active state in dropdown
+  document.querySelectorAll('.nav-dd-btn').forEach(b=>b.classList.remove('active'));
+  const activeBtn = document.querySelector(`.nav-dd-btn[data-brand="${brand}"]`);
+  if(activeBtn) activeBtn.classList.add('active');
+  // Show/hide brand sections
+  document.querySelectorAll('.brand-section').forEach(sec=>{
+    if(brand === 'all'){
+      sec.style.display='';
+    } else {
+      sec.style.display = sec.id === 'b-'+brand ? '' : 'none';
+    }
+  });
+  // Scroll to top of catalog smoothly
+  document.querySelector('.catalog-wrap').scrollIntoView({behavior:'smooth',block:'start'});
+  // Close dropdown
+  document.getElementById('navHamburger').classList.remove('open');
+  document.getElementById('navDropdown').classList.remove('open');
+}
+
+// Construcción del catálogo con interacción
+function buildCatalog(){
+  const container=document.getElementById('catalogContainer');
+  const ddInner=document.getElementById('navDropdownInner');
+  container.innerHTML=''; ddInner.innerHTML='';
+  const brandKeys=Object.keys(BRANDS);
+  document.getElementById('statBrands').setAttribute('data-target',brandKeys.length);
+  const totalModels=Object.values(BRANDS).reduce((a,b)=>a+b.length,0);
+  document.getElementById('statModels').setAttribute('data-target',totalModels);
+
+  // Build dropdown: "All brands" first
+  const allBtn=document.createElement('button');
+  allBtn.className='nav-dd-btn nav-dd-all active';
+  allBtn.textContent='✦ Todas las Marcas';
+  allBtn.setAttribute('data-brand','all');
+  allBtn.onclick=()=>filterBrand('all');
+  ddInner.appendChild(allBtn);
+
+  const sep=document.createElement('div');
+  sep.className='nav-dd-sep';
+  ddInner.appendChild(sep);
+
+  brandKeys.forEach((brand, idx)=>{
+    // Dropdown button
+    const ddBtn=document.createElement('button');
+    ddBtn.className='nav-dd-btn';
+    ddBtn.textContent=brand;
+    ddBtn.setAttribute('data-brand',brand);
+    ddBtn.onclick=()=>filterBrand(brand);
+    ddInner.appendChild(ddBtn);
+
+    const cars=BRANDS[brand];
+    const sec=document.createElement('section');
+    sec.className='brand-section';
+    sec.id='b-'+brand;
+    const gridDiv=document.createElement('div');
+    gridDiv.className='cars-grid';
+    cars.forEach(car=>{
+      const card=document.createElement('div');
+      card.className='car-card';
+      card.setAttribute('data-name',car[0]);
+      card.setAttribute('data-brand',brand);
+      card.setAttribute('data-hp',car[1]);
+      card.setAttribute('data-speed',car[2]);
+      card.setAttribute('data-price',car[3]);
+      card.setAttribute('data-img',car[4]);
+      card.innerHTML=`<div class="card-img-wrap"><img src="${car[4]}" alt="${car[0]}" loading="lazy"><div class="price-badge">${car[3]}</div></div>
+        <div class="card-content"><div class="card-brand-tag">${brand}</div><div class="card-name">${car[0]}</div>
+        <div class="card-specs-mini"><div class="mini-spec"><span>⚡</span> ${car[1]}</div><div class="mini-spec"><span>🏁</span> ${car[2]}</div></div>
+        <div class="card-footnote"><span>📖 Historia y detalles técnicos</span><span class="click-hint">EXPLORAR →</span></div></div>`;
+      card.addEventListener('click',()=>{
+        const story = generateCarStory(brand, car[0], car[1], car[2], car[3]);
+        openDetail(car[0], brand, car[1], car[2], car[3], car[4], story);
+      });
+      gridDiv.appendChild(card);
+    });
+    sec.innerHTML=`<div class="brand-header-row"><div class="brand-ghost-num">${String(idx+1).padStart(2,'0')}</div><div><div class="brand-lbl">Fabricante Premium</div><div class="brand-title">${brand}</div></div><div class="brand-count-block"><div class="brand-count-num">${cars.length}</div><div class="brand-count-lbl">Modelos</div></div></div><p class="brand-desc">${brand} representa la excelencia en ingeniería automotriz. Esta colección abarca desde hiperdeportivos hasta ediciones limitadas que han marcado época.</p><div class="cars-grid" id="grid-${brand.replace(/\s/g,'')}"></div><div class="brand-divider"><div class="bd-diamond"></div></div>`;
+    container.appendChild(sec);
+    const targetGrid=sec.querySelector('.cars-grid');
+    targetGrid.innerHTML=gridDiv.innerHTML;
+    Array.from(targetGrid.children).forEach(card=>{
+      const ds=card.dataset;
+      card.addEventListener('click',()=>{
+        const story = generateCarStory(ds.brand, ds.name, ds.hp, ds.speed, ds.price);
+        openDetail(ds.name, ds.brand, ds.hp, ds.speed, ds.price, ds.img, story);
+      });
+    });
+  });
+}
+
+function openDetail(name,brand,hp,speed,price,img,story){
+  const page=document.getElementById('detailPage');
+  const heroDiv=document.getElementById('detailHero');
+  document.getElementById('detailBrand').innerText=brand;
+  document.getElementById('detailTitle').innerText=name;
+  document.getElementById('detailHp').innerText=hp;
+  document.getElementById('detailSpeed').innerText=speed;
+  document.getElementById('detailPrice').innerText=price;
+  document.getElementById('detailStory').innerHTML = story;
+  heroDiv.style.backgroundImage=`linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.55)), url('${img}')`;
+  page.classList.add('active');
+  document.body.style.overflow='hidden';
+}
+function closeDetail(){
+  document.getElementById('detailPage').classList.remove('active');
+  document.body.style.overflow='auto';
+}
+function initObserver(){
+  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.car-card').forEach((c,i)=>setTimeout(()=>c.classList.add('in'),i*50));obs.unobserve(e.target);}});},{threshold:0.05});
+  document.querySelectorAll('.brand-section').forEach(s=>obs.observe(s));
+}
+function animateStats(){document.querySelectorAll('[data-target]').forEach(el=>{const target=parseInt(el.dataset.target);let val=0;const step=Math.ceil(target/55);const timer=setInterval(()=>{val=Math.min(val+step,target);el.textContent=val+(target>99?'+':'');if(val>=target)clearInterval(timer);},25);});}
+function doLogin(){
+  document.getElementById('loginPage').classList.add('out');
+  setTimeout(()=>{document.getElementById('loginPage').style.display='none';document.getElementById('mainApp').classList.add('on');buildCatalog();initObserver();animateStats();},900);
+}
+// (keydown Enter handled above)
+
+// CHATBOT (mismo árbol)
+const chatTree={main:{message:'Bienvenido a APEX AI. Elige una categoría para comenzar.',options:[{text:'Superdeportivos más rápidos',next:'fastest'},{text:'Comparar marcas',next:'compare'},{text:'Modelos híbridos',next:'hybrid'},{text:'Autos exclusivos',next:'exclusive'}]},fastest:{message:'Los modelos más rápidos incluyen Bugatti Chiron Super Sport 300+, McLaren Speedtail, Porsche 918 Spyder y Lamborghini Revuelto.',options:[{text:'Bugatti más rápido',next:'bugattiFast'},{text:'Ferrari más rápido',next:'ferrariFast'},{text:'Lamborghini más rápido',next:'lamboFast'},{text:'Volver al inicio',next:'main'}]},compare:{message:'Puedes comparar múltiples fabricantes del catálogo premium.',options:[{text:'Ferrari vs Lamborghini',next:'fvsl'},{text:'Bugatti vs McLaren',next:'bvsm'},{text:'Porsche vs Ferrari',next:'pvf'},{text:'Volver al inicio',next:'main'}]},hybrid:{message:'Los híbridos más destacados son Ferrari SF90, Lamborghini Revuelto, Porsche 918 Spyder y McLaren P1.',options:[{text:'Ferrari híbridos',next:'fh'},{text:'McLaren híbridos',next:'mh'},{text:'Porsche híbridos',next:'ph'},{text:'Volver al inicio',next:'main'}]},exclusive:{message:'El catálogo cuenta con múltiples vehículos de producción limitada y ediciones especiales de colección.',options:[{text:'Autos millonarios',next:'million'},{text:'Ediciones limitadas',next:'limited'},{text:'Autos históricos',next:'historic'},{text:'Volver al inicio',next:'main'}]},bugattiFast:{message:'El Bugatti Chiron Super Sport 300+ desarrolla 1578 HP y alcanza 490 km/h gracias a su motor W16 quad-turbo.',options:[{text:'Ver Bugatti exclusivos',next:'exclusive'},{text:'Comparar con McLaren',next:'bvsm'},{text:'Más rápidos',next:'fastest'},{text:'Inicio',next:'main'}]},ferrariFast:{message:'El Ferrari SF90 Stradale combina un V8 híbrido de 1000 HP con aceleración extrema.',options:[{text:'Ferrari híbridos',next:'fh'},{text:'Comparar Ferrari',next:'fvsl'},{text:'Más rápidos',next:'fastest'},{text:'Inicio',next:'main'}]},lamboFast:{message:'El Lamborghini Revuelto integra un sistema híbrido V12 de 1001 HP.',options:[{text:'Comparar Lamborghini',next:'fvsl'},{text:'Autos exclusivos',next:'exclusive'},{text:'Más rápidos',next:'fastest'},{text:'Inicio',next:'main'}]},fvsl:{message:'Ferrari destaca por precisión y herencia en competición. Lamborghini prioriza diseño agresivo.',options:[{text:'Ferrari rápidos',next:'ferrariFast'},{text:'Lamborghini rápidos',next:'lamboFast'},{text:'Modelos híbridos',next:'hybrid'},{text:'Inicio',next:'main'}]},bvsm:{message:'Bugatti domina en velocidad máxima y lujo extremo. McLaren sobresale por su peso ligero.',options:[{text:'Bugatti rápidos',next:'bugattiFast'},{text:'McLaren híbridos',next:'mh'},{text:'Autos exclusivos',next:'exclusive'},{text:'Inicio',next:'main'}]},pvf:{message:'Porsche ofrece equilibrio y tecnología. Ferrari aporta mayor agresividad sonora.',options:[{text:'Porsche híbridos',next:'ph'},{text:'Ferrari rápidos',next:'ferrariFast'},{text:'Comparativas',next:'compare'},{text:'Inicio',next:'main'}]},fh:{message:'Ferrari SF90 y LaFerrari son los híbridos más avanzados.',options:[{text:'Ferrari rápidos',next:'ferrariFast'},{text:'Autos exclusivos',next:'exclusive'},{text:'Comparativas',next:'compare'},{text:'Inicio',next:'main'}]},mh:{message:'McLaren P1 y Artura integran tecnología híbrida enfocada en aceleración extrema.',options:[{text:'McLaren vs Bugatti',next:'bvsm'},{text:'Híbridos',next:'hybrid'},{text:'Exclusivos',next:'exclusive'},{text:'Inicio',next:'main'}]},ph:{message:'El Porsche 918 Spyder redefinió los hiperdeportivos híbridos.',options:[{text:'Comparar Porsche',next:'pvf'},{text:'Autos rápidos',next:'fastest'},{text:'Exclusivos',next:'exclusive'},{text:'Inicio',next:'main'}]},million:{message:'Bugatti La Voiture Noire ($18M), McLaren F1 ($20M) y Rolls-Royce La Rose Noire ($30M) son los más costosos.',options:[{text:'Autos históricos',next:'historic'},{text:'Ediciones limitadas',next:'limited'},{text:'Comparar marcas',next:'compare'},{text:'Inicio',next:'main'}]},limited:{message:'Ferrari Monza SP2, Bugatti Centodieci y Lamborghini Centenario son ediciones limitadas.',options:[{text:'Autos millonarios',next:'million'},{text:'Autos rápidos',next:'fastest'},{text:'Modelos híbridos',next:'hybrid'},{text:'Inicio',next:'main'}]},historic:{message:'Ferrari F40, Porsche 959 y McLaren F1 son algunos de los vehículos más importantes.',options:[{text:'Autos exclusivos',next:'exclusive'},{text:'Comparativas',next:'compare'},{text:'Autos rápidos',next:'fastest'},{text:'Inicio',next:'main'}]}};
+const chatMsgs=document.getElementById('chatMsgs'), chatOpts=document.getElementById('chatOpts'); let chatInitialized=false;
+function toggleChat(){const bot=document.getElementById('chatbot');bot.classList.toggle('open');if(!chatInitialized){chatInitialized=true;renderNode('main')}}
+function addMsg(text,type){const d=document.createElement('div');d.className='msg '+type;d.innerHTML=text;chatMsgs.appendChild(d);chatMsgs.scrollTop=chatMsgs.scrollHeight;}
+function showTyping(){const d=document.createElement('div');d.className='typing';d.id='typing';d.innerHTML='<div class="t-dot"></div><div class="t-dot"></div><div class="t-dot"></div>';chatMsgs.appendChild(d);chatMsgs.scrollTop=chatMsgs.scrollHeight;}
+function hideTyping(){const el=document.getElementById('typing');if(el)el.remove();}
+function renderNode(key){const node=chatTree[key];if(!node)return;chatOpts.innerHTML='';showTyping();setTimeout(()=>{hideTyping();addMsg(node.message,'bot');node.options.forEach((o,i)=>{const b=document.createElement('button');b.textContent=o.text;b.style.animationDelay=i*.06+'s';b.onclick=()=>{addMsg(o.text,'user');chatOpts.innerHTML='';setTimeout(()=>renderNode(o.next),650);};chatOpts.appendChild(b);});},950);}
+</script>
+</body>
+</html>
